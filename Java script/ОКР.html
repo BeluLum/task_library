@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        class User {
+            constructor(name, surname) {
+                this.name = name;
+                this.surname = surname;
+            }
+
+            getFullName() {
+                return this.name + ' ' + this.surname;
+            }
+        }
+
+        class Student extends User {
+            constructor(name, surname, year) {
+                super(name, surname);
+                this.year = year;
+            }
+
+            getCourse() {
+                const currentYear = new Date().getFullYear();
+                let course = currentYear - this.year + 1;
+                if (course < 1) course = 1;
+                if (course > 5) course = 5;
+                return course;
+            }
+        }
+
+        var student = new Student('сигма', 'сигмуля', 2017);
+
+        console.log(student.name);
+        console.log(student.surname);
+        console.log(student.getFullName());
+        console.log(student.year);
+        console.log(student.getCourse());
+    </script>
+</body>
+</html>
